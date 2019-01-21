@@ -1,6 +1,10 @@
-<div class="card h-100">
-  <img [src]="movie.poster_path | imgurl" class="card-img-top shadow"  alt="...">
-  <div style="padding: 10px" class="card-body">
-    <h5 style="margin:0" class="card-title">{{ movie.title }}</h5>
+<a [routerLink]="['/movie', movie.id]">
+
+  <div class="card h-100">
+    <img [src]="movie.poster_path | imgurl" class="card-img-top shadow"  alt="...">
+    <div style="padding: 10px" class="card-body">
+      <h5 style="margin:0" class="card-title">{{ movie.title }}</h5>
+    </div>
   </div>
-</div>
+
+</a>

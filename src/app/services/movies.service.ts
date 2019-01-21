@@ -14,7 +14,7 @@ export class MoviesService {
   constructor( private http: HttpClient ) { }
 
   private getURL(request: string, language: string): string {
-    return `${ this.urlMoviedb }${ request }&api_key=${ this.apiKey }&language=${ language }&append_to_response=genere`;
+    return `${ this.urlMoviedb }${ request }&api_key=${ this.apiKey }&language=${ language }`;
   }
 
   getImgUrl( path: string, size: string ) {
@@ -28,6 +28,13 @@ export class MoviesService {
     return this.http.jsonp( url, 'callback=JSONP_CALLBACK' )
       .pipe( map( data => data['results'] ) );
 
+  }
+
+  getMovie( id: number ) {
+
+    const url = this.getURL( `/movie/${id}?append_to_response=videos`, 'en' );
+
+    return this.http.jsonp( url, 'callback=JSONP_CALLBACK' );
   }
 
 }

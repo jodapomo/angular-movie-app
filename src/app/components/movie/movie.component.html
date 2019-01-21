@@ -1,0 +1,12 @@
+<app-back-button></app-back-button>
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="movie && !loading">
+    <div class="row backdrop-image" [ngStyle]="{'background-image': 'url(' + (movie.backdrop_path | imgurl:'w780') + ')' }">
+      
+    </div>
+    
+    <div class="row">
+
+    </div>
+</div>

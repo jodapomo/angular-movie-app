@@ -8,15 +8,22 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class HomeComponent implements OnInit {
 
+  loading: boolean;
   popularMovies: any[];
 
-  constructor( public _ms: MoviesService ) { }
+  constructor( public _ms: MoviesService ) {
+    this.loading = true;
+  }
 
   ngOnInit() {
+    this.getPopularMovies();
+  }
+
+  getPopularMovies() {
     this._ms.getPopularMovies()
       .subscribe( data => {
-        console.log(data);
         this.popularMovies = data;
+        this.loading = false;
       });
   }
 

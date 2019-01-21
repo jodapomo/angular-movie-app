@@ -1,0 +1,7 @@
+.backdrop-image {
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    filter: blur(0px) grayscale(100%);
+}
