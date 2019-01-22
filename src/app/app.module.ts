@@ -13,6 +13,8 @@ import { CardMovieComponent } from './components/card-movie/card-movie.component
 import { MovieComponent } from './components/movie/movie.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { YoutubeVideoPipe } from './pipes/youtube-video.pipe';
+import { LastTrailerPipe } from './pipes/last-trailer.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { LoadingComponent } from './components/loading/loading.component';
     CardMovieComponent,
     MovieComponent,
     BackButtonComponent,
-    LoadingComponent
+    LoadingComponent,
+    YoutubeVideoPipe,
+    LastTrailerPipe
   ],
   imports: [
     BrowserModule,

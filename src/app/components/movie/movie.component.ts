@@ -9,20 +9,29 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieComponent implements OnInit {
 
+
   loading: boolean;
+
+  trailer: boolean;
 
   id: number;
   movie: any;
+  credits: any;
 
   constructor(  private _ms: MoviesService,
                 private route: ActivatedRoute ) {
+
     this.loading = true;
+
+    this.trailer = false;
   }
 
   ngOnInit() {
 
     this.route.params.subscribe( params => {
-      this.getMovie( params['id'] );
+      this.id = params['id'];
+      this.getMovie( this.id );
+      this.getMovieCredits( this.id );
     });
 
   }
@@ -34,6 +43,20 @@ export class MovieComponent implements OnInit {
 
         console.log(movie);
         this.movie = movie;
+
+        this.loading = false;
+
+    });
+
+  }
+
+  getMovieCredits( id: number) {
+
+    this._ms.getMovieCredits(id)
+      .subscribe( credits => {
+
+        console.log(credits);
+        this.credits = credits;
 
         this.loading = false;
 

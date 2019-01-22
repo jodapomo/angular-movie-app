@@ -2,11 +2,53 @@
 <app-loading *ngIf="loading"></app-loading>
 
 <div *ngIf="movie && !loading">
-    <div class="row backdrop-image" [ngStyle]="{'background-image': 'url(' + (movie.backdrop_path | imgurl:'w780') + ')' }">
-      
+    <div class="row main-title">
+        <h1>{{ movie.title | uppercase}}</h1>
+        <div class="genres">
+                <span *ngFor="let genre of movie.genres" class="badge badge-pilll badge-primary">{{ genre.name }}</span>
+        </div>
+    </div>
+
+    <div (click)="trailer = true" class="row backdrop-trailer" [ngStyle]="{'background-image': 'url(' + (movie.backdrop_path | imgurl:'w780') + ')' }" [ngClass]="{'grayscale': !trailer}" >
+        <div *ngIf="!trailer"  class="play-trailer">
+            <i class="far fa-play-circle fa-7x"></i>
+            <span>Watch Trailer</span>
+        </div>
+        <div class="col-12 videoWrapper">
+            <iframe *ngIf="trailer" [src]="movie.videos.results | lastTrailer | youtubeVideo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </div>
     
     <div class="row">
+        <div class="col-4">
+            <div class="poster-info" [ngClass]="{'down': trailer}">
 
+                <div class="poster">
+                    <img [src]="movie.poster_path | imgurl" alt="">
+                </div>
+    
+                
+                <div class="runtime-release row">
+                    <div class="col-6">
+                        <i class="far fa-clock"></i>
+                        <span>{{ movie.runtime }} min</span>
+                    </div>
+                    <div class="col-6">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>{{ movie.release_date | date }}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-8 info">
+            <h5>Original Title:</h5>
+            <p>{{ movie.original_title }}</p>
+            <hr>
+            
+        </div>
     </div>
 </div>
+
+<div class="scroll"></div>
