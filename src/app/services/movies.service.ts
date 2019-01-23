@@ -38,9 +38,18 @@ export class MoviesService {
 
   }
 
+  getPopularKidsMovies() {
+
+    const url = this.getURL( '/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc', this.language );
+
+    return this.http.jsonp( url, 'callback=JSONP_CALLBACK' )
+      .pipe( map( data => data['results'] ) );
+
+  }
+
   getMovie( id: number ) {
 
-    const url = this.getURL( `/movie/${id}?append_to_response=videos`, this.language );
+    const url = this.getURL( `/movie/${id}?append_to_response=videos,release_dates`, this.language );
 
     return this.http.jsonp( url, 'callback=JSONP_CALLBACK' );
   }
