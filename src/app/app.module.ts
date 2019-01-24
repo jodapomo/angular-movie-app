@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app.routes';
@@ -15,6 +16,7 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
 import { LoadingComponent } from './components/loading/loading.component';
 import { YoutubeVideoPipe } from './pipes/youtube-video.pipe';
 import { LastTrailerPipe } from './pipes/last-trailer.pipe';
+import { UserScoreComponent } from './components/movie/user-score/user-score.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { LastTrailerPipe } from './pipes/last-trailer.pipe';
     BackButtonComponent,
     LoadingComponent,
     YoutubeVideoPipe,
-    LastTrailerPipe
+    LastTrailerPipe,
+    UserScoreComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    BrowserAnimationsModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,7 +1,7 @@
-<h2>{{ title }}</h2>
+<h1 class="title">{{ title }}</h1>
 <hr>
-<div class="row">
-  <div class="col-md-3 mb-5" *ngFor="let movie of movies | slice:0:8">
+<div class="row mb-5">
+  <div class="col-md-3 mb-4" *ngFor="let movie of movies | slice:0:8">
     <app-card-movie [movie]="movie"></app-card-movie>
   </div>
 </div>

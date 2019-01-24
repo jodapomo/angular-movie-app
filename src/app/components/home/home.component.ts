@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
 
   popularMovies: any[];
   popularKidsMovies: any[];
+  upcomingMovies: any[];
+  nowPlayingMovies: any[];
 
   constructor( public _ms: MoviesService ) {
     this.loading = true;
@@ -20,6 +22,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getPopularMovies();
     this.getPopularKidsMovies();
+    this.getUpcomingMovies();
+    this.getNowPlayingMovies();
   }
 
   getPopularMovies() {
@@ -34,6 +38,22 @@ export class HomeComponent implements OnInit {
     this._ms.getPopularKidsMovies()
       .subscribe( data => {
         this.popularKidsMovies = data;
+        this.loading = false;
+      });
+  }
+
+  getUpcomingMovies() {
+    this._ms.getUpcomingMovies()
+      .subscribe( data => {
+        this.upcomingMovies = data;
+        this.loading = false;
+      });
+  }
+
+  getNowPlayingMovies() {
+    this._ms.getNowPlayingMovies()
+      .subscribe( data => {
+        this.nowPlayingMovies = data;
         this.loading = false;
       });
   }

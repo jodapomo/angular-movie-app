@@ -10,7 +10,7 @@ export class CardMovieComponent implements OnInit {
 
   @Input() movie: any;
 
-  constructor( private router: Router) { }
+  constructor( private router: Router ) { }
 
   ngOnInit() {
   }

@@ -5,7 +5,7 @@
     <div class="row main-title">
         <h1>{{ movie.title | uppercase}}</h1>
         <div class="genres">
-                <span *ngFor="let genre of movie.genres" class="badge badge-pilll badge-primary">{{ genre.name }}</span>
+                <span *ngFor="let genre of movie.genres" class="badge badge-pilll badge-light">{{ genre.name }}</span>
         </div>
     </div>
 
@@ -24,7 +24,7 @@
             <div class="poster-info" [ngClass]="{'down': trailer}">
 
                 <div class="poster">
-                    <img [src]="movie.poster_path | imgurl" alt="">
+                    <img id="moviePoster" [src]="movie.poster_path | imgurl" alt="">
                 </div>
     
                 
@@ -38,6 +38,8 @@
                         <span>{{ movie.release_date | date }}</span>
                     </div>
                 </div>
+                <hr>
+                <app-user-score [score]="movie.vote_average"></app-user-score>
             </div>
 
         </div>

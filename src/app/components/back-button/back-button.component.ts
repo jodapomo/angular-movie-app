@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-back-button',
@@ -8,13 +9,19 @@ import { Location } from '@angular/common';
 })
 export class BackButtonComponent implements OnInit {
 
-  constructor( private location: Location ) { }
+  constructor(  private location: Location,
+                private router: Router ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   goBack(): void {
-    this.location.back();
+
+    if (window.history.length > 1) {
+      this.location.back();
+    } else {
+      this.router.navigate(['/']);
+    }
+
   }
 
 }

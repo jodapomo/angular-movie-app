@@ -47,6 +47,27 @@ export class MoviesService {
 
   }
 
+  getUpcomingMovies() {
+
+    // const todayDate = new Date();
+    // const today = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`;
+    // const future = `${todayDate.getFullYear()}-${todayDate.getMonth() + 2}-${todayDate.getDate()}`;
+
+    // const url = this.getURL( `/discover/movie?release_date.gte=2019-01-23&release_date.lte=2019-01-23`, this.language );
+    const url = this.getURL( `/movie/upcoming?region=US`, this.language );
+
+    return this.http.jsonp( url, 'callback=JSONP_CALLBACK' )
+      .pipe( map( data => data['results'] ) );
+  }
+
+  getNowPlayingMovies() {
+
+    const url = this.getURL( `/movie/now_playing?region=US`, this.language );
+
+    return this.http.jsonp( url, 'callback=JSONP_CALLBACK' )
+      .pipe( map( data => data['results'] ) );
+  }
+
   getMovie( id: number ) {
 
     const url = this.getURL( `/movie/${id}?append_to_response=videos,release_dates`, this.language );
@@ -59,6 +80,7 @@ export class MoviesService {
     const url = this.getURL( `/movie/${id}/credits`, this.language );
 
     return this.http.jsonp( url, 'callback=JSONP_CALLBACK' );
+
   }
 
 

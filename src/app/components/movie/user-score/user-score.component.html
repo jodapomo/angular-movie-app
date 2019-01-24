@@ -1,0 +1,17 @@
+
+<div class="row mt-3">
+  <div class="col-md-12">
+      <div class="progress">
+          <span class="progress-left">
+              <span [@left]="{value: 'full', params: {leftDegress: leftDegress, timeLeft: timeLeft } }" class="progress-bar" [style.border-color]="color"></span>
+          </span>
+          <span class="progress-right">
+              <span [@right]="{value: 'full', params: {rightDegress: rightDegress, timeRight: timeRight} }" class="progress-bar" [style.border-color]="color"></span>
+          </span>
+          <div class="progress-value">
+            <div class="score">{{start}}<span>%</span></div>  
+            <span class="user-score">User Score</span>
+          </div>
+      </div>
+  </div>
+</div>
