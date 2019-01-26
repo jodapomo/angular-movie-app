@@ -24,16 +24,26 @@ export class MovieComponent implements OnInit {
     this.loading = true;
 
     this.trailer = false;
+
   }
 
   ngOnInit() {
 
     this.route.params.subscribe( params => {
       this.id = params['id'];
-      this.getMovie( this.id );
-      this.getMovieCredits( this.id );
+      this.getMovieAndCredits( this.id );
     });
 
+  }
+
+  getMovieAndCredits( id: number ) {
+    this._ms.getMovieAndCredits(id)
+      .subscribe( ([movie, credits]) => {
+        this.movie = movie;
+        this.credits = credits;
+
+        this.loading = false;
+      });
   }
 
   getMovie( id: number ) {
@@ -41,7 +51,6 @@ export class MovieComponent implements OnInit {
     this._ms.getMovie(id)
       .subscribe( movie => {
 
-        console.log(movie);
         this.movie = movie;
 
         this.loading = false;
@@ -55,7 +64,6 @@ export class MovieComponent implements OnInit {
     this._ms.getMovieCredits(id)
       .subscribe( credits => {
 
-        console.log(credits);
         this.credits = credits;
 
         this.loading = false;

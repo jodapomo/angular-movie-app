@@ -20,7 +20,7 @@
     </div>
     
     <div class="row">
-        <div class="col-4">
+        <div class="col-md-4 col-sm-12">
             <div class="poster-info" [ngClass]="{'down': trailer}">
 
                 <div class="poster">
@@ -29,28 +29,24 @@
     
                 
                 <div class="runtime-release row">
-                    <div class="col-6">
+                    <div *ngIf="movie.runtime" class="col-6">
                         <i class="far fa-clock"></i>
-                        <span>{{ movie.runtime }} min</span>
+                        <span>{{ movie.runtime | time }}</span>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" [ngClass]="{'col-12': !movie.runtime}">
                         <i class="far fa-calendar-alt"></i>
                         <span>{{ movie.release_date | date }}</span>
                     </div>
                 </div>
                 <hr>
                 <app-user-score [score]="movie.vote_average"></app-user-score>
+                <app-crew-info [crew]="credits.crew"></app-crew-info>
             </div>
 
         </div>
 
-        <div class="col-8 info">
-            <h5>Original Title:</h5>
-            <p>{{ movie.original_title }}</p>
-            <hr>
-            
+        <div class="col-md-8 col-sm-12 info">
+            <app-movie-info [movie]="movie" [cast]="credits.cast"></app-movie-info>
         </div>
     </div>
 </div>
-
-<div class="scroll"></div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { forkJoin  } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -83,5 +84,14 @@ export class MoviesService {
 
   }
 
+  getMovieAndCredits( id: number ) {
+    return forkJoin( this.getMovie( id ), this.getMovieCredits( id )  );
+  }
 
+  searchMovie( term: string ) {
+    const url = this.getURL( `/search/movie?query=${ term }`, this.language );
+
+    return this.http.jsonp( url, 'callback=JSONP_CALLBACK' )
+      .pipe( map( data => data['results'] ) );
+  }
 }

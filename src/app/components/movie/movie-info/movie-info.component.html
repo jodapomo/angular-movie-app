@@ -1,0 +1,24 @@
+
+<div class="row overview">
+  <div class="title">
+    <h4>Overview:</h4>
+  </div>
+  <p>{{movie.overview}}</p>
+</div>
+
+<div *ngIf="movie.tagline"  class="row">
+  <div class="tagline text-center">
+    <q class="mb-0">{{movie.tagline}}</q>
+  </div>
+</div>
+
+<div class=" row cast">
+  <div class="title">
+    <h4>Cast:</h4>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mb-4" *ngFor="let person of cast">
+      <app-cast-card [person]="person"></app-cast-card>
+    </div>  
+  </div>
+</div>

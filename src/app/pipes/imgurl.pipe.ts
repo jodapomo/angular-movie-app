@@ -10,6 +10,10 @@ export class ImgurlPipe implements PipeTransform {
 
   transform(path: string, size: string = 'w300'): string {
 
+    if ( path === null ) {
+      return 'assets/img/no-image.png';
+    }
+
     return this._ms.getImgUrl( path, size );
   }
 

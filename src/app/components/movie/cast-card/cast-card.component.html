@@ -1,0 +1,18 @@
+<a target="_blank" [href]="'http://www.google.com/search?q=' +  person.name">
+
+  <div class="card h-100">
+
+    <div *ngIf="crew" class="job">
+      <h5 style="margin:0" class="card-title">{{ person.job }}</h5>
+    </div>
+
+    <img *ngIf="!crew" [src]="person.profile_path | imgurl" class="card-img-top shadow"  alt="{{ person.name }}">
+
+    <div style="padding: 10px" class="card-body flex-center" [ngClass]="{'cast': !crew}">
+      <h5 style="margin:0" class="card-title">{{ person.name }}</h5>
+      <small class="character" *ngIf="!crew">{{ person.character }}</small>
+    </div>
+
+  </div>
+
+</a>

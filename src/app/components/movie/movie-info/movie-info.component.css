@@ -1,0 +1,22 @@
+.title {
+    width: 100%;
+}
+
+.tagline {
+    background: #212529;
+    color: #fff;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 3rem;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,.4);
+    margin-bottom: 20px;
+}
+
+.tagline q {
+    font-weight: bold;
+}
+
+.overview p {
+    text-align: justify;
+}

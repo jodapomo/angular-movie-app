@@ -17,6 +17,11 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { YoutubeVideoPipe } from './pipes/youtube-video.pipe';
 import { LastTrailerPipe } from './pipes/last-trailer.pipe';
 import { UserScoreComponent } from './components/movie/user-score/user-score.component';
+import { MovieInfoComponent } from './components/movie/movie-info/movie-info.component';
+import { CastCardComponent } from './components/movie/cast-card/cast-card.component';
+import { TimePipe } from './pipes/time.pipe';
+import { CrewInfoComponent } from './components/movie/crew-info/crew-info.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,13 +37,18 @@ import { UserScoreComponent } from './components/movie/user-score/user-score.com
     LoadingComponent,
     YoutubeVideoPipe,
     LastTrailerPipe,
-    UserScoreComponent
+    UserScoreComponent,
+    MovieInfoComponent,
+    CastCardComponent,
+    TimePipe,
+    CrewInfoComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

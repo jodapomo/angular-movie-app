@@ -6,6 +6,7 @@
     box-shadow: none;
     position: relative;
     overflow: visible;
+    margin-bottom: 20px;
 }
 .progress:after{
     content: "";

@@ -70,7 +70,14 @@ export class UserScoreComponent implements OnInit {
       }
     }, timeInterval);
 
-    setTimeout(() => clearInterval(interval), (totalTime + 2) * 1000);
+    setTimeout(() => {
+
+      clearInterval(interval);
+      if ( this.start !== this.score ) {
+        this.start = this.score;
+      }
+
+    }, (totalTime + 2) * 1000);
 
   }
 
