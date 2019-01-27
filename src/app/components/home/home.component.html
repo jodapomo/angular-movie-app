@@ -1,10 +1,10 @@
 <app-loading *ngIf="loading"></app-loading>
 
-<app-movie-group *ngIf="!loading" title="Now In Theaters" [movies]="nowPlayingMovies"></app-movie-group>
+<app-movie-group *ngIf="!loading" movieGroupTitle="Now In Theaters" [movies]="nowPlayingMovies"></app-movie-group>
 
-<app-movie-group *ngIf="!loading" title="Upcoming Movies" [movies]="upcomingMovies"></app-movie-group>
+<app-movie-group *ngIf="!loading" movieGroupTitle="Upcoming Movies" [movies]="upcomingMovies"></app-movie-group>
 
-<app-movie-group *ngIf="!loading" title="Most Popular Movies" [movies]="popularMovies"></app-movie-group>
+<app-movie-group *ngIf="!loading" movieGroupTitle="Most Popular Movies" [movies]="popularMovies"></app-movie-group>
 
-<app-movie-group *ngIf="!loading" title="Most Popular Kids Movies" [movies]="popularKidsMovies"></app-movie-group>
+<app-movie-group *ngIf="!loading" movieGroupTitle="Most Popular Kids Movies" [movies]="popularKidsMovies"></app-movie-group>
 

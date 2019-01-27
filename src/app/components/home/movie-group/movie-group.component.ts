@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MovieGroupComponent implements OnInit {
 
-  @Input() title: string;
+  @Input() movieGroupTitle: string;
   @Input() movies: any[];
 
   constructor() { }
